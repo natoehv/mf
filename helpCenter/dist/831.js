@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkcomic_app=self.webpackChunkcomic_app||[]).push([[831],{831:(e,c,u)=>{u.r(c),u.d(c,{default:()=>a});var n=u(486),t=u.n(n);function a({shouldFetch:e}){return t().createElement("div",null,"HEADER")}}}]);

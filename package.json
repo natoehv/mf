@@ -1,0 +1,12 @@
+{
+  "name": "microfront",
+  "version": "0.0.0",
+  "private": true,
+  "workspaces": [
+    "host",
+    "footer",
+    "content",
+    "helpCenter",
+    "header"
+  ]
+}
