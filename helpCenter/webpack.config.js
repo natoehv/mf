@@ -1,7 +1,7 @@
 const path = require("path");
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-
+const packageJson = require('./package.json')
 const { ModuleFederationPlugin } = webpack.container;
 
 module.exports = {
@@ -33,7 +33,10 @@ module.exports = {
 				"./index": "./app.jsx",
 			},
 			shared: [
-			
+				{
+					react: { singleton: true, eager: true },
+					"react-dom": { singleton: true, eager: true },
+				},
 			],
 		}),
 		new HtmlWebpackPlugin({

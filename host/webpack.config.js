@@ -29,13 +29,16 @@ module.exports = {
 			name: "home",
 			filename: "remoteEntry.js",
 			remotes: {
-				content: `content@//localhost:3001/remoteEntry.js`,
-				footer: `footer@//localhost:3002/remoteEntry.js`,
-				header: `header@//localhost:3003/remoteEntry.js`,
-				helpCenter: `helpCenter@//localhost:3004/remoteEntry.js`,
+				content: `content@//localhost:3001/remoteEntry.js`, // jano - jorge
+				footer: `footer@//localhost:3002/remoteEntry.js`, // jorge
+				header: `header@//localhost:3003/remoteEntry.js`, // nato
+				helpCenter: `helpCenter@//localhost:3004/remoteEntry.js`, // vicky
 			},
 			shared: [
-				
+				{
+					react: { singleton: true, eager: true },
+					"react-dom": { singleton: true, eager: true },
+				},
 			],
 		}),
 		new HtmlWebpackPlugin({
