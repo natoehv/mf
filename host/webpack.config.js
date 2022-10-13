@@ -38,6 +38,9 @@ module.exports = {
 				{
 					react: { singleton: true, eager: true },
 					"react-dom": { singleton: true, eager: true },
+					"@fortawesome/fontawesome-svg-core": { singleton: true, eager: true },
+					"@fortawesome/free-solid-svg-icons": { singleton: true, eager: true },
+					"@fortawesome/react-fontawesome":{ singleton: true, eager: true },
 				},
 			],
 		}),
