@@ -16,6 +16,17 @@ module.exports = {
 	module: {
 		rules: [
 			{
+        test: /\.s[ac]ss$/i,
+        use: [
+          // Creates `style` nodes from JS strings
+          "style-loader",
+          // Translates CSS into CommonJS
+          "css-loader",
+          // Compiles Sass to CSS
+          "sass-loader",
+        ],
+      },
+			{
 				test: /\.jsx?$/,
 				loader: "babel-loader",
 				exclude: /node_modules/,
@@ -36,6 +47,9 @@ module.exports = {
 				{
 					react: { singleton: true, eager: true },
 					"react-dom": { singleton: true, eager: true },
+					"@fortawesome/fontawesome-svg-core": { singleton: true, eager: true },
+					"@fortawesome/free-solid-svg-icons": { singleton: true, eager: true },
+					"@fortawesome/react-fontawesome":{ singleton: true, eager: true },
 				},
 			],
 		}),

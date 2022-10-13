@@ -1,0 +1,30 @@
+.header {
+  height: 40px;
+  background-color: #f1f1f1;
+  position: relative;
+  
+
+  nav {
+    display: flex;
+    gap: 10px;
+  }
+
+  &__burger {
+    font-size: 30px;
+  }
+
+  &__menu {
+    position: absolute;
+    background-color: white;
+    width: 70%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    bottom: 0;
+  }
+
+  &__close-menu {
+    font-size: 30px;
+
+  }
+}
