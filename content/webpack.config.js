@@ -14,8 +14,15 @@ module.exports = {
 	output: {
 		publicPath: "auto",
 	},
+	resolve: {
+    extensions: [".js", ".jsx"],
+  },
 	module: {
 		rules: [
+			{
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"],
+      },
 			{
 				test: /\.jsx?$/,
 				loader: "babel-loader",
