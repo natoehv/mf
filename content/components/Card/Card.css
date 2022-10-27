@@ -1,0 +1,30 @@
+.card {
+  box-shadow: 1px 3px 35px -7px rgb(0 0 0 / 8%);
+  -webkit-box-shadow: 1px 3px 35px -7px rgb(0 0 0 / 8%);
+  -moz-box-shadow: 1px 3px 35px -7px rgba(0,0,0,0.08);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px;
+}
+
+.card__title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #7B61FF;
+}
+
+.card__title::first-letter {
+  text-transform: uppercase;
+ }
+
+.card__content {
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(0,0,0,0.8);
+}
+
+.card__content::first-letter {
+  text-transform: uppercase;
+ }
