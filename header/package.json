@@ -22,11 +22,14 @@
     "@fortawesome/fontawesome-svg-core": "^6.2.0",
     "@fortawesome/free-solid-svg-icons": "^6.2.0",
     "@fortawesome/react-fontawesome": "^0.2.0",
+    "baseui": "^12.2.0",
     "css-loader": "^6.7.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "sass": "^1.55.0",
     "sass-loader": "^13.0.2",
-    "style-loader": "^3.3.1"
+    "style-loader": "^3.3.1",
+    "styletron-engine-atomic": "^1.5.0",
+    "styletron-react": "^6.1.0"
   }
 }
