@@ -1,7 +1,8 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack").container
 	.ModuleFederationPlugin;
-const path = require("path");
+const {webpackFormat} = require('./remotes');
+
 
 module.exports = {
 	entry: "./index.js",
@@ -12,8 +13,16 @@ module.exports = {
 	output: {
 		publicPath: "auto",
 	},
+	resolve: {
+    extensions: ['.tsx', '.ts', '.js'],
+  },
 	module: {
 		rules: [
+			{
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/,
+      },
 			{
 				test: /\.jsx?$/,
 				loader: "babel-loader",
@@ -28,15 +37,10 @@ module.exports = {
 		new ModuleFederationPlugin({
 			name: "home",
 			filename: "remoteEntry.js",
-			remotes: {
-				content: `content@//localhost:3001/remoteEntry.js`, // jano - jorge
-				footer: `footer@//localhost:3002/remoteEntry.js`, // jorge
-				header: `header@//localhost:3003/remoteEntry.js`, // nato
-				helpCenter: `helpCenter@//localhost:3004/remoteEntry.js`, // vicky
-			},
+			remotes: webpackFormat,
 			shared: [
 				{
-					react: { singleton: true, eager: true },
+					react: { singleton: true, eager: true, requiredVersion: '^17.0.2' },
 					"react-dom": { singleton: true, eager: true },
 					"@fortawesome/fontawesome-svg-core": { singleton: true, eager: true },
 					"@fortawesome/free-solid-svg-icons": { singleton: true, eager: true },
