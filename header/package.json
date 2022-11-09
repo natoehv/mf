@@ -22,6 +22,7 @@
     "@fortawesome/fontawesome-svg-core": "^6.2.0",
     "@fortawesome/free-solid-svg-icons": "^6.2.0",
     "@fortawesome/react-fontawesome": "^0.2.0",
+    "@podium/browser": "^1.2.1",
     "baseui": "^12.2.0",
     "css-loader": "^6.7.1",
     "react": "^17.0.2",

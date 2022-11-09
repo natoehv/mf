@@ -1,19 +1,22 @@
 import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faClose, faBars } from "@fortawesome/free-solid-svg-icons";
+import { MessageBus } from "@podium/browser";
 import "./app.scss";
 
+const messageBus = new MessageBus();
 const Header = () => {
   const [user, setUser] = useState({});
   const [menuShown, setMenuShown] = useState(false);
-  const getUser = (evt) => {
-    console.log("evt.detail", evt.detail);
-    setUser(evt.detail.user);
-    //user = evt.detail
-  };
+
   useEffect(() => {
-    document.addEventListener("state:user", getUser);
-    return () => document.removeEventListener("state:user", getUser);
+    const event = messageBus.peek("state", "user");
+    event && setUser(event.payload);
+    messageBus.subscribe("state", "user", (event) => {
+      setUser(event.payload);
+    });
+
+    return () => messageBus.unsubscribe("state", "user");
   }, []);
 
   return (

@@ -1,7 +1,8 @@
 import React, { useState, lazy, Suspense, useEffect } from "react";
+import { MessageBus } from "@podium/browser";
 import LazyService from "./components/LazyService";
 import { remotes } from "./remotes";
-
+const messageBus = new MessageBus();
 const getUser = () =>
   fetch("https://jsonplaceholder.typicode.com/users/1").then((response) =>
     response.json()
@@ -9,20 +10,16 @@ const getUser = () =>
 
 const App = () => {
   const [user, setUser] = useState();
-  console.log({ user });
 
   useEffect(() => {
     getUser().then((data) => {
       setUser(data);
-      document.dispatchEvent(
-        new CustomEvent("state:user", {
-          detail: {
-            user: data,
-          },
-        })
-      );
     });
   }, []);
+
+  useEffect(() => {
+    messageBus.publish("state", "user", user);
+  }, [user]);
 
   return (
     <>
