@@ -2,4 +2,4 @@
 
 - [ ] hotreload
 - [ ] command to init all services
-- [ ] version control
+- [x] version control

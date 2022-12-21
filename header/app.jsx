@@ -11,9 +11,9 @@ const Header = () => {
 
   useEffect(() => {
     const event = messageBus.peek("state", "user");
-    event && setUser(event.payload);
+    event && event.payload && setUser(event.payload);
     messageBus.subscribe("state", "user", (event) => {
-      setUser(event.payload);
+      event.payload && setUser(event.payload);
     });
 
     return () => messageBus.unsubscribe("state", "user");
@@ -27,7 +27,7 @@ const Header = () => {
         </button>
         <div className="header__logo">P&P Front</div>
         <div className="header__user">
-          {user.username && `Wena choro ${user.username}`}
+          {user.username && `Bienvenido ${user.username}`}
         </div>
         {menuShown && (
           <div className="header__menu">

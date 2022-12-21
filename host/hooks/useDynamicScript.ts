@@ -1,17 +1,17 @@
 import { useEffect, useState } from 'react';
 
-export const useDynamicScript = (url?: string): { ready: boolean; failed: boolean } => {
+export const useDynamicScript = (url: string, v: string) => {
   const [ready, setReady] = useState(false);
   const [failed, setFailed] = useState(false);
 
   useEffect(() => {
-    if (!url) {
+    if (!url || !v) {
       return;
     }
 
     const script = document.createElement('script');
 
-    script.src = url;
+    script.src = `${url}?${v}`;
     script.type = 'text/javascript';
     script.async = true;
 
@@ -35,7 +35,7 @@ export const useDynamicScript = (url?: string): { ready: boolean; failed: boolea
       console.log(`Dynamic Script Removed: ${url}`);
       document.head.removeChild(script);
     };
-  }, [url]);
+  }, [url, v]);
 
   return {
     ready,

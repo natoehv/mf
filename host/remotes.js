@@ -12,6 +12,7 @@ const remotes = {
   header: {
     scope: "header",
     module: "./index",
+    manifest: '//localhost:3003/manifest.json',
     url: "//localhost:3003/remoteEntry.js",
   },
   helpCenter: {

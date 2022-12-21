@@ -31,6 +31,7 @@
     "sass-loader": "^13.0.2",
     "style-loader": "^3.3.1",
     "styletron-engine-atomic": "^1.5.0",
-    "styletron-react": "^6.1.0"
+    "styletron-react": "^6.1.0",
+    "webpack-manifest-plugin": "^5.0.0"
   }
 }

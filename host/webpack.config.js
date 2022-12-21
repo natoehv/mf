@@ -9,6 +9,9 @@ module.exports = {
 	mode: "development",
 	devServer: {
 		port: 3005,
+		hot: false,
+		webSocketServer: false,
+    liveReload: false
 	},
 	output: {
 		publicPath: "auto",
