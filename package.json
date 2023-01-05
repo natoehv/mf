@@ -1,6 +1,14 @@
 {
   "name": "microfront",
   "version": "0.0.1",
+  "scripts": {
+    "start": "yarn start:host & yarn start:content & yarn start:footer & yarn start:header & yarn start:helpCenter",
+    "start:host": "yarn workspace mf start",
+    "start:content": "yarn workspace content-app start",
+    "start:footer": "yarn workspace footer-app start",
+    "start:header": "yarn workspace header-app start",
+    "start:helpCenter": "yarn workspace help-center-app start"
+  },
   "private": true,
   "workspaces": [
     "host",
