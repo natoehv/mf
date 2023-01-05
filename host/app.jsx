@@ -1,6 +1,8 @@
 import React, { useState, lazy, Suspense, useEffect } from "react";
 import { MessageBus } from "@podium/browser";
 import LazyService from "./components/LazyService";
+import { LoadingHeader } from "./components/header/LoadingHeader";
+import { ErrorHeader } from "./components/header/ErrorHeader";
 import { remotes } from "./remotes";
 const messageBus = new MessageBus();
 const getUser = () =>
@@ -25,8 +27,8 @@ const App = () => {
     <>
       <LazyService
         microservice={remotes.header}
-        loadingMessage={"...cargando header"}
-        errorMessage={<div>Fallback Header</div>}
+        loadingMessage={<LoadingHeader />}
+        errorMessage={<ErrorHeader />}
       />
       <LazyService
         microservice={remotes.content}

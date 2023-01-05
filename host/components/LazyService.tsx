@@ -4,6 +4,7 @@ import { lazy, ReactNode, Suspense } from 'react';
 
 import { useDynamicScript } from '../hooks/useDynamicScript';
 import { useHandleVersion } from '../hooks/useHandleVersion';
+import { ErrorBoundary } from './ErrorBoundary';
 import { loadComponent } from './loadComponent';
 import { Microservice } from './types'
 // import { ErrorBoundary } from '../ErrorBoundary/ErrorBoundary';
@@ -39,10 +40,12 @@ export default function LazyService<T = Record<string, unknown>>({
   const Component = lazy(loadComponent(microservice.scope, microservice.module));
 
   return (
+    <ErrorBoundary fallback={errorNode}>
       <Suspense fallback={loadingNode}>
         <>
           <Component {...(microservice.props || props || {})} />
         </>
       </Suspense>
+      </ErrorBoundary>
   );
 }
